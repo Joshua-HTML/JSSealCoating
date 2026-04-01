@@ -68,6 +68,26 @@ header nav a:hover { color:red; }
 
 /* FOOTER */
 footer { background:#000; color:#fff; text-align:center; padding:20px; margin-top: auto; }
+
+/* ------------------------ */
+/* MOBILE RESPONSIVENESS */
+@media (max-width:1024px) {
+  .hero-content h1 { font-size:48px; }
+  .hero-content p { font-size:18px; }
+}
+@media (max-width:768px) {
+  header { flex-direction: column; gap:15px; }
+  header nav { flex-wrap: wrap; justify-content: center; gap:15px; }
+  .hero-content h1 { font-size:36px; }
+  .hero-content p { font-size:16px; }
+  .hero-content a { padding:12px 25px; font-size:0.9rem; }
+  .services { flex-direction: column; align-items: center; gap:20px; }
+}
+@media (max-width:480px) {
+  .hero-content h1 { font-size:28px; }
+  .hero-content p { font-size:14px; }
+  .service-box { width:90%; height:200px; }
+}
 </style>
 </head>
 <body>

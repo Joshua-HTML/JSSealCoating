@@ -7,29 +7,47 @@
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Roboto', sans-serif; }
-body { background:#fff; display: flex; flex-direction: column; min-height: 100vh; }
+body { background:#fff; display:flex; flex-direction:column; min-height:100vh; color:#111; line-height:1.6; }
 
 header {
   display:flex; justify-content:space-between; align-items:center;
-  padding:20px 5%; background:#000; color:#fff;
+  padding:20px 5%; background:#000; color:#fff; position:sticky; top:0; z-index:100; box-shadow:0 2px 5px rgba(0,0,0,0.2);
 }
-header .logo { display:flex; align-items:center; gap:10px; }
+header .logo { font-family:'Oswald'; font-size:1.5rem; color:#fff; }
 header nav { display:flex; gap:25px; }
 header nav a { color:#fff; text-decoration:none; font-weight:700; text-transform:uppercase; }
+header nav a:hover { color:red; }
 
-.main-content { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px 20px; }
-.container { max-width:700px; width:100%; background:#f9f9f9; padding:40px; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
+.main-content { flex:1; display:flex; align-items:center; justify-content:center; padding:40px 20px; }
+.container {
+  max-width:700px; width:100%; background:#f9f9f9; padding:40px; border-radius:10px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.1); text-align:center;
+}
 .container h1 { text-align:center; color:red; font-family:'Oswald'; margin-bottom:30px; }
 
-input, textarea { width:100%; padding:12px; margin-bottom:20px; border-radius:5px; border:1px solid #ccc; }
-button { width:100%; padding:15px; background:red; color:#fff; font-weight:bold; border:none; border-radius:5px; cursor:pointer; }
+input, textarea { width:100%; padding:12px; margin-bottom:20px; border-radius:5px; border:1px solid #ccc; font-size:1rem; }
+button { width:100%; padding:15px; background:red; color:#fff; font-weight:bold; border:none; border-radius:5px; cursor:pointer; font-size:1rem; }
 
-footer { background:#000; color:#fff; text-align:center; padding:20px; margin-top: auto; }
+footer { background:#000; color:#fff; text-align:center; padding:20px; margin-top:auto; }
+
+/* ------------------------ */
+/* MOBILE RESPONSIVENESS */
+@media (max-width:768px) {
+  header { flex-direction:column; gap:15px; }
+  header nav { flex-wrap:wrap; justify-content:center; gap:10px; }
+  .container { padding:30px 20px; }
+  input, textarea, button { font-size:0.95rem; padding:10px; }
+}
+@media (max-width:480px) {
+  .container h1 { font-size:24px; }
+  input, textarea, button { font-size:0.9rem; padding:8px; }
+}
 </style>
 </head>
 <body>
+
 <header>
-  <div class="logo"><span>JS SealCoating</span></div>
+  <div class="logo">JS SealCoating</div>
   <nav>
     <a href="index.html">Home</a>
     <a href="quote.html">Quote</a>
@@ -49,6 +67,9 @@ footer { background:#000; color:#fff; text-align:center; padding:20px; margin-to
   </div>
 </div>
 
-<footer><p>© 2026 JS SealCoating</p></footer>
+<footer>
+  <p>© 2026 JS SealCoating | Palatine, IL</p>
+</footer>
+
 </body>
 </html>

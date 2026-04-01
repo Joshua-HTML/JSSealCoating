@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JS SealCoating</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Roboto', sans-serif; }
+
+/* STICKY FOOTER FIX */
+body { 
+  background:#fff; 
+  color:#111; 
+  line-height:1.6; 
+  display: flex; 
+  flex-direction: column; 
+  min-height: 100vh; 
+}
+
+/* HEADER */
+header {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:20px 5%; background:#000; color:#fff; position:sticky; top:0; z-index:100; box-shadow:0 2px 5px rgba(0,0,0,0.2);
+}
+header .logo { display:flex; align-items:center; gap:10px; }
+header .logo img { height:50px; }
+header nav { display:flex; gap:25px; }
+header nav a { color:#fff; text-decoration:none; font-weight:700; text-transform:uppercase; padding:5px 10px; transition:0.3s; }
+header nav a:hover { color:red; }
+
+/* HERO */
+.hero {
+  height:70vh;
+  background:url('sealCoating.webp') center/cover no-repeat;
+  display:flex; align-items:center; justify-content:center; text-align:center; position:relative;
+}
+.hero::before {
+  content:""; position:absolute; width:100%; height:100%;
+  background:linear-gradient(to bottom, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.6) 100%);
+}
+.hero-content { position:relative; z-index:2; color:#111; }
+.hero-content h1 { font-family:'Oswald'; font-size:64px; margin-bottom:15px; }
+.hero-content p { font-size:20px; margin-bottom:25px; font-weight:500; }
+.hero-content a { background:red; color:#fff; padding:15px 35px; text-decoration:none; font-weight:bold; border-radius:5px; transition:0.3s; }
+.hero-content a:hover { background:#fff; color:red; }
+
+/* SERVICES - Pusher for footer */
+.services { 
+  display:flex; flex-wrap:wrap; justify-content:space-around; gap:20px; padding:60px 5%; 
+  flex: 1; 
+}
+.service-box {
+  background:#fff; width:300px; height:250px; position:relative;
+  display:flex; align-items:flex-end; padding:20px; border-radius:10px;
+  overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:0.3s;
+  background-blend-mode: normal; /* Removes any automatic darkening */
+}
+.service-box h3 { 
+  color:#fff; 
+  position:relative; 
+  z-index:2; 
+  font-family:'Oswald'; 
+  font-size:22px; 
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.9); /* Makes text readable on any image */
+}
+.service-box:hover { transform:scale(1.05); }
+
+/* FOOTER */
+footer { background:#000; color:#fff; text-align:center; padding:20px; margin-top: auto; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="SealLogo.png" alt="JS SealCoating Logo">
+    <span>JS SealCoating</span>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="quote.html">Quote</a>
+    <a href="employment.html">Jobs</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Protect Your Driveway</h1>
+    <p>Sealcoating • Crack Filling • Line Striping</p>
+    <a href="quote.html">Get a Free Quote</a>
+  </div>
+</section>
+
+<section class="services">
+  <div class="service-box" style="background-image:url('sealCoating.webp'); background-size:cover; background-position:center;">
+    <h3>Seal Coating</h3>
+  </div>
+  <div class="service-box" style="background-image:url('crackFilling.jpg'); background-size:cover; background-position:center;">
+    <h3>Crack Filling</h3>
+  </div>
+  <div class="service-box" style="background-image:url('lineStriping.jpg'); background-size:cover; background-position:center;">
+    <h3>Line Striping</h3>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 JS SealCoating</p>
+</footer>
+
+</body>
+</html>

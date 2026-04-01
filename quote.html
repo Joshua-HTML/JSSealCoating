@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get a Free Quote | JS SealCoating</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #fff;
+      --accent-color: #FF0000;
+      --secondary-color: #111;
+      --highlight-color: #FF9F1C;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
+    body { background: var(--primary-color); color: var(--secondary-color); line-height: 1.6; }
+
+    header {
+      background: #000;
+      color: #fff;
+      padding: 20px 5%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo { font-family: 'Oswald', sans-serif; font-size: 1.6rem; letter-spacing: 1px; color: #fff; text-decoration: none; }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      margin-left: 25px;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: var(--accent-color); }
+    .nav-btn {
+      padding: 8px 16px;
+      border: 1px solid var(--accent-color);
+      border-radius: 5px;
+    }
+    .nav-btn:hover { background: var(--accent-color); color: #fff; }
+
+    .section { padding: 80px 5%; }
+    .section.dark { background: #1A1A1B; color: #fff; text-align: center; }
+    .section.dark h1 { font-family: 'Oswald', sans-serif; font-size: 3rem; margin-bottom: 10px; }
+    .section.dark p { color: #ADB5BD; font-size: 1.1rem; }
+
+    .container { max-width: 900px; margin: 0 auto; }
+
+    .contact-form-card {
+      background: #f9f9f9;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      margin-top: -60px;
+    }
+
+    .contact-form .form-group { margin-bottom: 20px; }
+    .contact-form label { display: block; font-weight: 600; margin-bottom: 8px; color: #333; }
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 6px rgba(255,0,0,0.25);
+      outline: none;
+    }
+
+    .form-row { display: flex; gap: 20px; flex-wrap: wrap; }
+    .form-row .form-group { flex: 1; min-width: 200px; }
+
+    .btn-primary {
+      width: 100%;
+      background: var(--accent-color);
+      color: #fff;
+      font-weight: 700;
+      padding: 16px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn-primary:hover { background: var(--secondary-color); }
+
+    #successMessage {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+      background: #fff3e0;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      margin-top: 20px;
+    }
+    #successMessage h2 { color: var(--highlight-color); margin-bottom: 12px; }
+    #successMessage p { font-size: 1.1rem; color: #333; }
+
+    footer { background: #000; color: #fff; text-align: center; padding: 30px 5%; margin-top: 60px; font-size: 0.95rem; }
+    @media (max-width: 768px) {
+      .form-row { flex-direction: column; }
+      .contact-form-card { padding: 30px 20px; }
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function(){
+      emailjs.init("QnCpF41NzEoGYcmRU"); // your public key
+    })();
+  </script>
+</head>
+<body class="subpage">
+
+<header>
+  <div class="nav-container">
+    <a href="index.html" class="logo">JS <span>SEALCOATING</span></a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="quote.html" class="nav-btn">Get Quote</a>
+    </nav>
+  </div>
+</header>
+
+<section class="section dark">
+  <div class="container">
+    <h1>Request Your Free Estimate</h1>
+    <p>Complete the form below to book your assessment in Palatine & surrounding areas.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-form-card">
+      <form id="quoteForm" class="contact-form">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="userName" placeholder="John Doe" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" id="userPhone" placeholder="(555) 555-5555" required>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="userEmail" placeholder="john@example.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Property Address</label>
+          <input type="text" id="userAddress" placeholder="123 Main St, Palatine, IL" required>
+        </div>
+        <div class="form-group">
+          <label>Service Type</label>
+          <select id="serviceType">
+            <option value="Residential Driveway Sealcoating">Residential Driveway</option>
+            <option value="Commercial Parking Lot Sealcoating">Commercial Parking Lot</option>
+            <option value="Crack Filling / Asphalt Repair">Crack Filling / Repair Only</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Project Details</label>
+          <textarea id="userDetails" rows="5" placeholder="Tell us about the project (size, condition, etc.)"></textarea>
+        </div>
+        <button type="submit" class="btn-primary" id="submitBtn">Submit Quote Request</button>
+      </form>
+
+      <div id="successMessage">
+        <div style="font-size: 4rem; margin-bottom: 20px;">✅</div>
+        <h2>Request Sent!</h2>
+        <p>Thanks, <span id="displayFirstName"></span>. We've received your info and sent a confirmation email to your inbox.</p>
+        <br>
+        <a href="index.html" class="btn-primary" style="width:auto; padding:12px 30px;">Back to Home</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 JS SealCoating | Palatine, IL</p>
+  </div>
+</footer>
+
+<!-- LOGIC UNTOUCHED -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC4vPhWvvS1iji56ErUovorzgPOwAgES70",
+  authDomain: "js-sealcoating.firebaseapp.com",
+  projectId: "js-sealcoating",
+  storageBucket: "js-sealcoating.firebasestorage.app",
+  messagingSenderId: "44299224297",
+  appId: "1:44299224297:web:49ee805de42f985bf15c78",
+  measurementId: "G-3V1EDHKLQ0"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const quoteForm = document.getElementById('quoteForm');
+const submitBtn = document.getElementById('submitBtn');
+
+quoteForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  submitBtn.innerText = "Processing Lead...";
+  submitBtn.disabled = true;
+
+  const templateParams = {
+    customerName: document.getElementById('userName').value,
+    email: document.getElementById('userEmail').value,
+    phone: document.getElementById('userPhone').value,
+    address: document.getElementById('userAddress').value,
+    service: document.getElementById('serviceType').value,
+    details: document.getElementById('userDetails').value
+  };
+
+  try {
+    await addDoc(collection(db, "quotes"), {
+      ...templateParams,
+      status: "New Lead",
+      createdAt: serverTimestamp()
+    });
+
+    await emailjs.send("service_9s21rio", "template_3jdyf6w", templateParams);
+
+    quoteForm.style.display = 'none';
+    document.getElementById('displayFirstName').innerText = templateParams.customerName.split(' ')[0];
+    document.getElementById('successMessage').style.display = 'block';
+  } catch (error) {
+    console.error("Error: ", error);
+    alert("Something went wrong. Please check your internet connection.");
+    submitBtn.innerText = "Submit Quote Request";
+    submitBtn.disabled = false;
+  }
+});
+</script>
+
+</body>
+</html>

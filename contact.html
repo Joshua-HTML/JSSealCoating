@@ -26,21 +26,19 @@ header nav a:hover { color:red; }
 .container h1 { text-align:center; color:red; font-family:'Oswald'; margin-bottom:30px; }
 
 input, textarea { width:100%; padding:12px; margin-bottom:20px; border-radius:5px; border:1px solid #ccc; font-size:1rem; }
-button { width:100%; padding:15px; background:red; color:#fff; font-weight:bold; border:none; border-radius:5px; cursor:pointer; font-size:1rem; }
+button { width:100%; padding:15px; background:red; color:#fff; font-weight:bold; border:none; border-radius:5px; cursor:pointer; font-size:1rem; transition: background 0.3s; }
+button:hover { background: #cc0000; }
+button:disabled { background: #555; cursor: not-allowed; }
 
 footer { background:#000; color:#fff; text-align:center; padding:20px; margin-top:auto; }
 
-/* ------------------------ */
-/* MOBILE RESPONSIVENESS */
+#successMessage { display:none; padding: 20px; }
+#successMessage h2 { color: red; font-family: 'Oswald'; margin-bottom: 10px; }
+
 @media (max-width:768px) {
   header { flex-direction:column; gap:15px; }
   header nav { flex-wrap:wrap; justify-content:center; gap:10px; }
   .container { padding:30px 20px; }
-  input, textarea, button { font-size:0.95rem; padding:10px; }
-}
-@media (max-width:480px) {
-  .container h1 { font-size:24px; }
-  input, textarea, button { font-size:0.9rem; padding:8px; }
 }
 </style>
 </head>
@@ -58,19 +56,93 @@ footer { background:#000; color:#fff; text-align:center; padding:20px; margin-to
 
 <div class="main-content">
   <div class="container">
-    <h1>Contact Us</h1>
-    <form>
-      <input type="text" placeholder="Name" required>
-      <input type="email" placeholder="Email" required>
-      <textarea placeholder="Message" rows="5" required></textarea>
-      <button type="submit">Send</button>
-    </form>
+    <div id="formContainer">
+      <h1>Contact Us</h1>
+      <form id="contactForm">
+        <input type="text" id="userName" placeholder="Name" required>
+        <input type="email" id="userEmail" placeholder="Email" required>
+        <textarea id="userMessage" placeholder="Message" rows="5" required></textarea>
+        <button type="submit" id="submitBtn">Send Message</button>
+      </form>
+    </div>
+
+    <div id="successMessage">
+      <div style="font-size: 4rem; margin-bottom: 20px;">✅</div>
+      <h2>Message Sent!</h2>
+      <p>Thanks for reaching out. We've received your message and will be in touch shortly.</p>
+      <br>
+      <a href="index.html" style="color:red; font-weight:bold; text-decoration:none;">← Back to Home</a>
+    </div>
   </div>
 </div>
 
 <footer>
   <p>© 2026 JS SealCoating | Palatine, IL</p>
 </footer>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+  (function(){ emailjs.init("QnCpF41NzEoGYcmRU"); })();
+</script>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC4vPhWvvS1iji56ErUovorzgPOwAgES70",
+  authDomain: "js-sealcoating.firebaseapp.com",
+  projectId: "js-sealcoating",
+  storageBucket: "js-sealcoating.firebasestorage.app",
+  messagingSenderId: "44299224297",
+  appId: "1:44299224297:web:49ee805de42f985bf15c78",
+  measurementId: "G-3V1EDHKLQ0"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const contactForm = document.getElementById('contactForm');
+const submitBtn = document.getElementById('submitBtn');
+const formContainer = document.getElementById('formContainer');
+const successMessage = document.getElementById('successMessage');
+
+contactForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  submitBtn.innerText = "Sending Message...";
+  submitBtn.disabled = true;
+
+  // These keys match your EmailJS template variables
+  const templateParams = {
+    from_name: document.getElementById('userName').value,
+    from_email: document.getElementById('userEmail').value,
+    message: document.getElementById('userMessage').value
+  };
+
+  try {
+    // 1. Save to Firebase (New collection: contact_messages)
+    await addDoc(collection(db, "contact_messages"), {
+      ...templateParams,
+      status: "New Inquiry",
+      createdAt: serverTimestamp()
+    });
+
+    // 2. Send via EmailJS using your IDs
+    await emailjs.send("service_9s21rio", "template_7erce9d", templateParams);
+
+    // 3. UI Update
+    formContainer.style.display = 'none';
+    successMessage.style.display = 'block';
+
+  } catch (error) {
+    console.error("Error sending message:", error);
+    alert("Something went wrong. Please check your connection and try again.");
+    submitBtn.innerText = "Send Message";
+    submitBtn.disabled = false;
+  }
+});
+</script>
 
 </body>
 </html>

@@ -1,95 +1,96 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Services | JS SealCoating</title>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<title>Our Services | Just Seal Bros</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
 <style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Roboto', sans-serif; }
-body { display:flex; flex-direction:column; min-height:100vh; background:#fff; color:#111; line-height:1.6; }
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
+body { background:#fff; color:#111; line-height:1.6; display:flex; flex-direction:column; min-height:100vh; }
 
 header {
   display:flex; justify-content:space-between; align-items:center;
   padding:20px 5%; background:#000; color:#fff; position:sticky; top:0; z-index:100; box-shadow:0 2px 5px rgba(0,0,0,0.2);
 }
-header .logo { font-family:'Oswald'; font-size:1.5rem; }
+header .logo { font-family:'Oswald'; font-size:1.5rem; color:#fff; text-decoration:none; }
 header nav { display:flex; gap:25px; }
 header nav a { color:#fff; text-decoration:none; font-weight:700; text-transform:uppercase; }
 header nav a:hover { color:red; }
 
 .hero {
-  height:50vh; background:url('services-hero.jpg') center/cover no-repeat;
-  display:flex; align-items:center; justify-content:center; text-align:center;
+  height:60vh;
+  background:url('ServicesBanner.webp') center/cover no-repeat;
+  display:flex; align-items:center; justify-content:center; text-align:center; position:relative;
 }
 .hero::before {
-  content:""; position:absolute; width:100%; height:100%; background:rgba(255,255,255,0.5);
+  content:""; position:absolute; width:100%; height:100%;
+  background:linear-gradient(to bottom, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.5) 100%);
 }
 .hero-content { position:relative; z-index:2; color:#111; }
-.hero-content h1 { font-family:'Oswald'; font-size:48px; }
+.hero-content h1 { font-family:'Oswald'; font-size:52px; margin-bottom:15px; }
+.hero-content p { font-size:18px; margin-bottom:25px; font-weight:500; }
 
-.services-section { padding:60px 5%; display:flex; flex-wrap:wrap; gap:30px; justify-content:center; }
-.service-card {
-  background:#f9f9f9; border-radius:12px; width:300px; padding:25px;
-  box-shadow:0 6px 18px rgba(0,0,0,0.08); transition:0.3s; display:flex; flex-direction:column; align-items:center;
-}
-.service-card img { width:100%; border-radius:12px; margin-bottom:15px; }
-.service-card h3 { font-family:'Oswald'; font-size:22px; margin-bottom:10px; }
-.service-card p { font-size:16px; text-align:center; color:#555; }
+.container { max-width:1100px; margin:0 auto; padding:60px 20px; }
+.service-card { background:#f9f9f9; padding:30px; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.08); margin-bottom:40px; transition:transform 0.3s, box-shadow 0.3s; }
+.service-card:hover { transform:translateY(-5px); box-shadow:0 10px 24px rgba(0,0,0,0.12); }
+.service-card h2 { font-family:'Oswald'; color:red; margin-bottom:15px; font-size:28px; }
+.service-card p { color:#333; font-size:16px; line-height:1.6; }
 
-footer { background:#000; color:#fff; text-align:center; padding:20px; margin-top:auto; }
+footer { background:#000; color:#fff; text-align:center; padding:30px 5%; margin-top:60px; font-size:0.95rem; }
 
-/* ------------------------ */
 /* MOBILE RESPONSIVENESS */
-@media (max-width:1024px) {
-  .hero-content h1 { font-size:36px; }
-}
-@media (max-width:768px) {
-  header { flex-direction:column; gap:15px; }
-  header nav { flex-wrap:wrap; justify-content:center; gap:15px; }
-  .services-section { flex-direction:column; align-items:center; }
-  .service-card { width:90%; }
-}
-@media (max-width:480px) {
-  .hero-content h1 { font-size:28px; }
-  .service-card h3 { font-size:20px; }
-  .service-card p { font-size:14px; }
-}
+@media (max-width:1024px) { .hero-content h1 { font-size:42px; } .hero-content p { font-size:16px; } }
+@media (max-width:768px) { header { flex-direction:column; gap:15px; } header nav { flex-wrap:wrap; justify-content:center; gap:10px; } .container { padding:40px 15px; } }
+@media (max-width:480px) { .hero-content h1 { font-size:28px; } .service-card h2 { font-size:22px; } .service-card p { font-size:14px; } }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">Just Seal Bros</div>
+  <a href="index" class="logo">Just Seal Bros</a>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="quote.html">Quote</a>
-    <a href="employment.html">Jobs</a>
-    <a href="contact.html">Contact</a>
+    <a href="index">Home</a>
+    <a href="services">Services</a>
+    <a href="quote" class="btn-primary">Get Quote</a>
+    <a href="employment">Jobs</a>
+    <a href="contact">Contact</a>
   </nav>
 </header>
 
 <section class="hero">
   <div class="hero-content">
-    <h1>Our Services</h1>
+    <h1>Premium Sealcoating & Asphalt Services</h1>
+    <p>Serving Palatine, IL and surrounding areas with top-quality driveway and parking lot maintenance.</p>
   </div>
 </section>
 
-<section class="services-section">
+<section class="container">
   <div class="service-card">
-    <img src="sealCoating.webp" alt="Seal Coating">
-    <h3>Seal Coating</h3>
-    <p>Protect and extend the life of your asphalt surfaces with professional seal coating services.</p>
+    <h2>Residential Driveway Sealcoating</h2>
+    <p>Protect and enhance your driveway with our professional sealcoating services. We use high-quality materials to extend the life of your asphalt and improve curb appeal.</p>
   </div>
+  
   <div class="service-card">
-    <img src="crackFilling.jpg" alt="Crack Filling">
-    <h3>Crack Filling</h3>
-    <p>Prevent further damage with our expert crack filling, ensuring a smooth and durable surface.</p>
+    <h2>Commercial Parking Lot Sealcoating</h2>
+    <p>Our commercial services ensure your parking lots remain safe, smooth, and visually appealing. We provide full parking lot maintenance including striping and patching.</p>
   </div>
+  
   <div class="service-card">
-    <img src="lineStriping.jpg" alt="Line Striping">
-    <h3>Line Striping</h3>
-    <p>Professional line striping services for parking lots, driveways, and commercial properties.</p>
+    <h2>Crack Filling & Asphalt Repair</h2>
+    <p>Prevent costly damage with our crack filling and asphalt repair services. We address minor cracks before they become major problems, maintaining a safe and durable surface.</p>
+  </div>
+  
+  <div class="service-card">
+    <h2>Concrete & Asphalt Striping</h2>
+    <p>Enhance safety and organization with precise parking lot striping. We offer lines, symbols, and ADA-compliant markings for commercial and residential properties.</p>
+  </div>
+  
+  <div class="service-card">
+    <h2>Full Asphalt Maintenance Packages</h2>
+    <p>Combine sealcoating, crack filling, and minor repairs for comprehensive asphalt maintenance. Our packages save you time and money while keeping your property in top condition.</p>
   </div>
 </section>
 

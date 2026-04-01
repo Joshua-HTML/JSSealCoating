@@ -1,74 +1,121 @@
----
----
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Get a Free Quote | Just Seal Bros</title>
+<title>Get a Free Quote | JS SealCoating</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
 <style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
-body { background:#fff; color:#111; line-height:1.6; display:flex; flex-direction:column; min-height:100vh; }
+:root {
+  --primary-color: #fff;
+  --accent-color: #FF0000;
+  --secondary-color: #111;
+  --highlight-color: #FF9F1C;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
+body { background: var(--primary-color); color: var(--secondary-color); line-height: 1.6; display:flex; flex-direction:column; min-height:100vh; }
 
 header {
-  display:flex; justify-content:space-between; align-items:center;
-  padding:20px 5%; background:#000; color:#fff; position:sticky; top:0; z-index:100; box-shadow:0 2px 5px rgba(0,0,0,0.2);
+  background: #000;
+  color: #fff;
+  padding: 20px 5%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
 }
-header .logo { font-family:'Oswald'; font-size:1.5rem; color:#fff; text-decoration:none; }
-header nav { display:flex; gap:25px; }
-header nav a { color:#fff; text-decoration:none; font-weight:700; text-transform:uppercase; }
-header nav a:hover { color:red; }
-
-.hero {
-  height:70vh;
-  background:url('SealCoating.webp') center/cover no-repeat;
-  display:flex; align-items:center; justify-content:center; text-align:center; position:relative;
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.hero::before {
-  content:""; position:absolute; width:100%; height:100%;
-  background:linear-gradient(to bottom, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.6) 100%);
+.logo { font-family: 'Oswald', sans-serif; font-size: 1.6rem; letter-spacing: 1px; color: #fff; text-decoration: none; }
+nav a { color: #fff; text-decoration: none; font-weight: 700; margin-left: 25px; transition: color 0.3s; }
+nav a:hover { color: var(--accent-color); }
+.nav-btn { padding: 8px 16px; border: 1px solid var(--accent-color); border-radius: 5px; }
+.nav-btn:hover { background: var(--accent-color); color: #fff; }
+
+.section { padding: 80px 5%; }
+.section.dark { background: #1A1A1B; color: #fff; text-align: center; }
+.section.dark h1 { font-family: 'Oswald', sans-serif; font-size: 3rem; margin-bottom: 10px; }
+.section.dark p { color: #ADB5BD; font-size: 1.1rem; }
+
+.container { max-width: 900px; margin: 0 auto; }
+
+.contact-form-card {
+  background: #f9f9f9;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  margin-top: -60px;
 }
-.hero-content { position:relative; z-index:2; color:#111; }
-.hero-content h1 { font-family:'Oswald'; font-size:64px; margin-bottom:15px; }
-.hero-content p { font-size:20px; margin-bottom:25px; font-weight:500; }
-.hero-content a { background:red; color:#fff; padding:15px 35px; text-decoration:none; font-weight:bold; border-radius:5px; transition:0.3s; }
-.hero-content a:hover { background:#fff; color:red; }
 
-.container { max-width:900px; margin:0 auto; padding:40px; background:#f9f9f9; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.1); margin-top:-60px; }
+.contact-form .form-group { margin-bottom: 20px; }
+.contact-form label { display: block; font-weight: 600; margin-bottom: 8px; color: #333; }
+.contact-form input, .contact-form select, .contact-form textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 6px rgba(255,0,0,0.25);
+  outline: none;
+}
 
-.form-group { margin-bottom:20px; }
-.form-group label { display:block; font-weight:600; margin-bottom:8px; color:#333; }
-input, select, textarea { width:100%; padding:14px; border:1px solid #ccc; border-radius:8px; font-size:1rem; transition: border 0.3s, box-shadow 0.3s; }
-input:focus, select:focus, textarea:focus { border-color:red; box-shadow:0 0 6px rgba(255,0,0,0.25); outline:none; }
-
-.form-row { display:flex; gap:20px; flex-wrap:wrap; }
-.form-row .form-group { flex:1; min-width:200px; }
+.form-row { display: flex; gap: 20px; flex-wrap: wrap; }
+.form-row .form-group { flex: 1; min-width: 200px; }
 
 .btn-primary {
-  width:100%;
-  background:red;
-  color:#fff;
-  font-weight:700;
-  padding:16px;
-  border:none;
-  border-radius:8px;
-  font-size:1.1rem;
-  cursor:pointer;
+  width: 100%;
+  background: var(--accent-color);
+  color: #fff;
+  font-weight: 700;
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
   transition: background 0.3s;
 }
-.btn-primary:hover { background:#111; }
+.btn-primary:hover { background: var(--secondary-color); }
 
-#successMessage { display:none; text-align:center; padding:60px 20px; background:#fff3e0; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.08); margin-top:20px; }
-#successMessage h2 { color:#FF9F1C; margin-bottom:12px; }
-#successMessage p { font-size:1.1rem; color:#333; }
+#successMessage {
+  display: none;
+  text-align: center;
+  padding: 60px 20px;
+  background: #fff3e0;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  margin-top: 20px;
+}
+#successMessage h2 { color: var(--highlight-color); margin-bottom: 12px; }
+#successMessage p { font-size: 1.1rem; color: #333; }
 
-footer { background:#000; color:#fff; text-align:center; padding:30px 5%; margin-top:60px; font-size:0.95rem; }
+footer { background: #000; color: #fff; text-align: center; padding: 30px 5%; margin-top: 60px; font-size: 0.95rem; }
 
 /* MOBILE RESPONSIVENESS */
-@media (max-width:1024px) { .hero-content h1 { font-size:48px; } .hero-content p { font-size:18px; } }
-@media (max-width:768px) { header { flex-direction:column; gap:15px; } header nav { flex-wrap:wrap; justify-content:center; gap:10px; } .container { padding:30px 20px; } }
-@media (max-width:480px) { .hero-content h1 { font-size:28px; } .btn-primary { padding:12px; font-size:0.95rem; } }
+@media (max-width:1024px) {
+  .section.dark h1 { font-size:2.5rem; }
+  .section.dark p { font-size:1rem; }
+}
+@media (max-width:768px) {
+  header { flex-direction: column; gap:15px; }
+  header nav { flex-wrap: wrap; justify-content: center; gap:10px; }
+  .contact-form-card { padding:30px 20px; }
+  .btn-primary { padding:14px; font-size:1rem; }
+  .form-row { flex-direction: column; }
+}
+@media (max-width:480px) {
+  .section.dark h1 { font-size:2rem; }
+  .contact-form-card { padding:20px 15px; }
+  .btn-primary { padding:12px; font-size:0.95rem; }
+}
 </style>
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -76,72 +123,78 @@ footer { background:#000; color:#fff; text-align:center; padding:30px 5%; margin
   (function(){ emailjs.init("QnCpF41NzEoGYcmRU"); })();
 </script>
 </head>
-<body>
+<body class="subpage">
 
 <header>
-  <a href="index" class="logo">Just Seal Bros</a>
-  <nav>
-    <a href="index">Home</a>
-    <a href="index#services">Services</a>
-    <a href="quote" class="btn-primary">Get Quote</a>
-    <a href="employment">Jobs</a>
-    <a href="contact">Contact</a>
-  </nav>
+  <div class="nav-container">
+    <a href="index.html" class="logo">Just <span>Seal Bros</span></a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="quote.html" class="nav-btn">Get Quote</a>
+    </nav>
+  </div>
 </header>
 
-<section class="hero">
-  <div class="hero-content">
+<section class="section dark">
+  <div class="container">
     <h1>Request Your Free Estimate</h1>
     <p>Complete the form below to book your assessment in Palatine & surrounding areas.</p>
   </div>
 </section>
 
-<section class="container">
-  <form id="quoteForm">
-    <div class="form-group">
-      <label>Full Name</label>
-      <input type="text" id="userName" placeholder="John Doe" required>
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        <label>Phone Number</label>
-        <input type="tel" id="userPhone" placeholder="(555) 555-5555" required>
-      </div>
-      <div class="form-group">
-        <label>Email Address</label>
-        <input type="email" id="userEmail" placeholder="john@example.com" required>
-      </div>
-    </div>
-    <div class="form-group">
-      <label>Property Address</label>
-      <input type="text" id="userAddress" placeholder="123 Main St, Palatine, IL" required>
-    </div>
-    <div class="form-group">
-      <label>Service Type</label>
-      <select id="serviceType">
-        <option value="Residential Driveway Sealcoating">Residential Driveway</option>
-        <option value="Commercial Parking Lot Sealcoating">Commercial Parking Lot</option>
-        <option value="Crack Filling / Asphalt Repair">Crack Filling / Repair Only</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label>Project Details</label>
-      <textarea id="userDetails" rows="5" placeholder="Tell us about the project (size, condition, etc.)"></textarea>
-    </div>
-    <button type="submit" class="btn-primary" id="submitBtn">Submit Quote Request</button>
-  </form>
+<section class="section">
+  <div class="container">
+    <div class="contact-form-card">
+      <form id="quoteForm" class="contact-form">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="userName" placeholder="John Doe" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" id="userPhone" placeholder="(555) 555-5555" required>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="userEmail" placeholder="john@example.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Property Address</label>
+          <input type="text" id="userAddress" placeholder="123 Main St, Palatine, IL" required>
+        </div>
+        <div class="form-group">
+          <label>Service Type</label>
+          <select id="serviceType">
+            <option value="Residential Driveway Sealcoating">Residential Driveway</option>
+            <option value="Commercial Parking Lot Sealcoating">Commercial Parking Lot</option>
+            <option value="Crack Filling / Asphalt Repair">Crack Filling / Repair Only</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Project Details</label>
+          <textarea id="userDetails" rows="5" placeholder="Tell us about the project (size, condition, etc.)"></textarea>
+        </div>
+        <button type="submit" class="btn-primary" id="submitBtn">Submit Quote Request</button>
+      </form>
 
-  <div id="successMessage">
-    <div style="font-size: 4rem; margin-bottom: 20px;">✅</div>
-    <h2>Request Sent!</h2>
-    <p>Thanks, <span id="displayFirstName"></span>. We've received your info and sent a confirmation email to your inbox.</p>
-    <br>
-    <a href="index" class="btn-primary" style="width:auto; padding:12px 30px;">Back to Home</a>
+      <div id="successMessage">
+        <div style="font-size: 4rem; margin-bottom: 20px;">✅</div>
+        <h2>Request Sent!</h2>
+        <p>Thanks, <span id="displayFirstName"></span>. We've received your info and sent a confirmation email to your inbox.</p>
+        <br>
+        <a href="index.html" class="btn-primary" style="width:auto; padding:12px 30px;">Back to Home</a>
+      </div>
+    </div>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 Just Seal Bros | Palatine, IL</p>
+  <div class="container">
+    <p>&copy; 2026 Just Seal Bros | Palatine, IL</p>
+  </div>
 </footer>
 
 <script type="module">

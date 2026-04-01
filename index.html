@@ -1,5 +1,4 @@
----
----
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +46,7 @@ header nav a:hover { color:red; }
 .hero-content a { background:red; color:#fff; padding:15px 35px; text-decoration:none; font-weight:bold; border-radius:5px; transition:0.3s; }
 .hero-content a:hover { background:#fff; color:red; }
 
-/* SERVICES */
+/* SERVICES - Pusher for footer */
 .services { 
   display:flex; flex-wrap:wrap; justify-content:space-around; gap:20px; padding:60px 5%; 
   flex: 1; 
@@ -56,7 +55,7 @@ header nav a:hover { color:red; }
   background:#fff; width:300px; height:250px; position:relative;
   display:flex; align-items:flex-end; padding:20px; border-radius:10px;
   overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:0.3s;
-  background-blend-mode: normal;
+  background-blend-mode: normal; /* Removes any automatic darkening */
 }
 .service-box h3 { 
   color:#fff; 
@@ -64,14 +63,15 @@ header nav a:hover { color:red; }
   z-index:2; 
   font-family:'Oswald'; 
   font-size:22px; 
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.9); /* Makes text readable on any image */
 }
 .service-box:hover { transform:scale(1.05); }
 
 /* FOOTER */
 footer { background:#000; color:#fff; text-align:center; padding:20px; margin-top: auto; }
 
-/* MOBILE */
+/* ------------------------ */
+/* MOBILE RESPONSIVENESS */
 @media (max-width:1024px) {
   .hero-content h1 { font-size:48px; }
   .hero-content p { font-size:18px; }
@@ -99,10 +99,10 @@ footer { background:#000; color:#fff; text-align:center; padding:20px; margin-to
     <span>Just Seal Bros</span>
   </div>
   <nav>
-    <a href="./">Home</a>
-    <a href="quote">Quote</a>
-    <a href="employment">Jobs</a>
-    <a href="contact">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="quote.html">Quote</a>
+    <a href="employment.html">Jobs</a>
+    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
@@ -110,11 +110,11 @@ footer { background:#000; color:#fff; text-align:center; padding:20px; margin-to
   <div class="hero-content">
     <h1>Protect Your Driveway</h1>
     <p>Sealcoating • Crack Filling • Line Striping</p>
-    <a href="quote">Get a Free Quote</a>
+    <a href="quote.html">Get a Free Quote</a>
   </div>
 </section>
 
-<section class="services" id="services">
+<section class="services">
   <div class="service-box" style="background-image:url('SealCoating.webp'); background-size:cover; background-position:center;">
     <h3>Seal Coating</h3>
   </div>

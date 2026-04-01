@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,28 +16,9 @@ header {
   padding:20px 5%; background:#000; color:#fff; position:sticky; top:0; z-index:100; box-shadow:0 2px 5px rgba(0,0,0,0.2);
 }
 header .logo { font-family:'Oswald'; font-size:1.5rem; color:#fff; text-decoration:none; }
-header nav { display:flex; gap:25px; align-items: center; }
+header nav { display:flex; gap:25px; }
 header nav a { color:#fff; text-decoration:none; font-weight:700; text-transform:uppercase; }
 header nav a:hover { color:red; }
-
-/* New Navigation Button Styling */
-.nav-btn {
-  background: red;
-  color: #fff !important;
-  padding: 10px 20px;
-  text-decoration: none;
-  font-weight: 700;
-  border-radius: 5px;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  transition: 0.3s;
-  display: inline-block;
-  line-height: 1;
-}
-.nav-btn:hover {
-  background: #fff !important;
-  color: red !important;
-}
 
 .hero {
   height:70vh;
@@ -100,7 +83,7 @@ footer { background:#000; color:#fff; text-align:center; padding:30px 5%; margin
   <nav>
     <a href="index">Home</a>
     <a href="index#services">Services</a>
-    <a href="quote" class="nav-btn">Get Quote</a>
+    <a href="quote" class="btn-primary">Get Quote</a>
     <a href="employment">Jobs</a>
     <a href="contact">Contact</a>
   </nav>

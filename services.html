@@ -1,10 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Services | JS SealCoating</title>
+<title>Our Services | Just Seal Bros</title>
+
+<link rel="icon" type="image/png" href="/SealLogo.png">
+<link rel="apple-touch-icon" href="/SealLogo.png">
+
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Roboto', sans-serif; }
@@ -14,14 +17,17 @@ header {
   display:flex; justify-content:space-between; align-items:center;
   padding:20px 5%; background:#000; color:#fff; position:sticky; top:0; z-index:100; box-shadow:0 2px 5px rgba(0,0,0,0.2);
 }
-header .logo { font-family:'Oswald'; font-size:1.5rem; }
+header .logo-container { display: flex; align-items: center; gap: 10px; }
+header .logo-container img { height: 40px; width: 40px; object-fit: contain; }
+header .logo { font-family:'Oswald'; font-size:1.5rem; text-transform: uppercase; }
 header nav { display:flex; gap:25px; }
 header nav a { color:#fff; text-decoration:none; font-weight:700; text-transform:uppercase; }
-header nav a:hover { color:red; }
+header nav a:hover { color:#f59e0b; }
 
 .hero {
   height:50vh; background:url('services-hero.jpg') center/cover no-repeat;
   display:flex; align-items:center; justify-content:center; text-align:center;
+  position: relative;
 }
 .hero::before {
   content:""; position:absolute; width:100%; height:100%; background:rgba(255,255,255,0.5);
@@ -40,28 +46,22 @@ header nav a:hover { color:red; }
 
 footer { background:#000; color:#fff; text-align:center; padding:20px; margin-top:auto; }
 
-/* ------------------------ */
 /* MOBILE RESPONSIVENESS */
-@media (max-width:1024px) {
-  .hero-content h1 { font-size:36px; }
-}
 @media (max-width:768px) {
   header { flex-direction:column; gap:15px; }
   header nav { flex-wrap:wrap; justify-content:center; gap:15px; }
   .services-section { flex-direction:column; align-items:center; }
   .service-card { width:90%; }
 }
-@media (max-width:480px) {
-  .hero-content h1 { font-size:28px; }
-  .service-card h3 { font-size:20px; }
-  .service-card p { font-size:14px; }
-}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">Just Seal Bros</div>
+  <div class="logo-container">
+    <img src="/SealLogo.png" alt="Just Seal Bros">
+    <div class="logo">Just Seal Bros</div>
+  </div>
   <nav>
     <a href="index.html">Home</a>
     <a href="quote.html">Quote</a>

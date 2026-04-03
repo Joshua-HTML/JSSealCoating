@@ -1,134 +1,254 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Just Seal Bros</title>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Roboto', sans-serif; }
-
-/* STICKY FOOTER FIX */
-body { 
-  background:#fff; 
-  color:#111; 
-  line-height:1.6; 
-  display: flex; 
-  flex-direction: column; 
-  min-height: 100vh; 
-}
-
-/* HEADER */
-header {
-  display:flex; justify-content:space-between; align-items:center;
-  padding:20px 5%; background:#000; color:#fff; position:sticky; top:0; z-index:100; box-shadow:0 2px 5px rgba(0,0,0,0.2);
-}
-header .logo { display:flex; align-items:center; gap:10px; }
-header .logo img { height:50px; }
-header nav { display:flex; gap:25px; }
-header nav a { color:#fff; text-decoration:none; font-weight:700; text-transform:uppercase; padding:5px 10px; transition:0.3s; }
-header nav a:hover { color:red; }
-
-/* HERO */
-.hero {
-  height:70vh;
-  background:url('SealCoating.webp') center/cover no-repeat;
-  display:flex; align-items:center; justify-content:center; text-align:center; position:relative;
-}
-.hero::before {
-  content:""; position:absolute; width:100%; height:100%;
-  background:linear-gradient(to bottom, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.6) 100%);
-}
-.hero-content { position:relative; z-index:2; color:#111; }
-.hero-content h1 { font-family:'Oswald'; font-size:64px; margin-bottom:15px; }
-.hero-content p { font-size:20px; margin-bottom:25px; font-weight:500; }
-.hero-content a { background:red; color:#fff; padding:15px 35px; text-decoration:none; font-weight:bold; border-radius:5px; transition:0.3s; }
-.hero-content a:hover { background:#fff; color:red; }
-
-/* SERVICES - Pusher for footer */
-.services { 
-  display:flex; flex-wrap:wrap; justify-content:space-around; gap:20px; padding:60px 5%; 
-  flex: 1; 
-}
-.service-box {
-  background:#fff; width:300px; height:250px; position:relative;
-  display:flex; align-items:flex-end; padding:20px; border-radius:10px;
-  overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:0.3s;
-  background-blend-mode: normal; /* Removes any automatic darkening */
-}
-.service-box h3 { 
-  color:#fff; 
-  position:relative; 
-  z-index:2; 
-  font-family:'Oswald'; 
-  font-size:22px; 
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.9); /* Makes text readable on any image */
-}
-.service-box:hover { transform:scale(1.05); }
-
-/* FOOTER */
-footer { background:#000; color:#fff; text-align:center; padding:20px; margin-top: auto; }
-
-/* ------------------------ */
-/* MOBILE RESPONSIVENESS */
-@media (max-width:1024px) {
-  .hero-content h1 { font-size:48px; }
-  .hero-content p { font-size:18px; }
-}
-@media (max-width:768px) {
-  header { flex-direction: column; gap:15px; }
-  header nav { flex-wrap: wrap; justify-content: center; gap:15px; }
-  .hero-content h1 { font-size:36px; }
-  .hero-content p { font-size:16px; }
-  .hero-content a { padding:12px 25px; font-size:0.9rem; }
-  .services { flex-direction: column; align-items: center; gap:20px; }
-}
-@media (max-width:480px) {
-  .hero-content h1 { font-size:28px; }
-  .hero-content p { font-size:14px; }
-  .service-box { width:90%; height:200px; }
-}
-</style>
+<title>Just Seal Bros | Professional Pavement Care</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { heading: ['Oswald', 'sans-serif'], body: ['Roboto', 'sans-serif'] },
+        colors: { amber: { 400: '#fbbf24', 500: '#f59e0b' }, slate: { 50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1', 400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0f172a' } }
+      }
+    }
+  }
+</script>
+<script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body>
+<body class="bg-white text-slate-900 font-body flex flex-col min-h-screen">
 
-<header>
-  <div class="logo">
-    <img src="SealLogo.png" alt="Just Seal Bros Logo">
-    <span>Just Seal Bros</span>
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-lg">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-amber-500 rounded-lg flex items-center justify-center">
+          <span class="text-white font-heading font-black text-lg">JS</span>
+        </div>
+        <div>
+          <span class="font-heading font-black text-xl text-slate-900 block leading-none">JUST SEAL BROS</span>
+          <span class="text-xs text-amber-500 font-body font-semibold tracking-widest">SEALCOATING PRO</span>
+        </div>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html#services" class="font-body text-sm font-semibold text-slate-600 hover:text-amber-500 transition-colors tracking-wide">Services</a>
+        <a href="index.html#about" class="font-body text-sm font-semibold text-slate-600 hover:text-amber-500 transition-colors tracking-wide">About</a>
+        <a href="employment.html" class="font-body text-sm font-semibold text-slate-600 hover:text-amber-500 transition-colors tracking-wide">Jobs</a>
+        <a href="contact.html" class="font-body text-sm font-semibold text-slate-600 hover:text-amber-500 transition-colors tracking-wide">Contact</a>
+        <a href="quote.html" class="flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-white px-6 py-2.5 rounded-full font-body font-bold text-sm transition-all shadow-md shadow-amber-200">
+          Get Quote
+        </a>
+      </div>
+      <button id="mobile-menu-btn" class="md:hidden text-slate-700">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
   </div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="quote.html">Quote</a>
-    <a href="employment.html">Jobs</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-xl">
+    <div class="px-6 py-4 space-y-1 flex flex-col">
+      <a href="index.html#services" class="block py-3 font-semibold text-slate-700 hover:text-amber-500">Services</a>
+      <a href="index.html#about" class="block py-3 font-semibold text-slate-700 hover:text-amber-500">About</a>
+      <a href="employment.html" class="block py-3 font-semibold text-slate-700 hover:text-amber-500">Jobs</a>
+      <a href="contact.html" class="block py-3 font-semibold text-slate-700 hover:text-amber-500">Contact</a>
+      <a href="quote.html" class="flex items-center justify-center gap-2 bg-amber-500 text-white px-6 py-3 rounded-full font-bold text-sm mt-3">Get Quote</a>
+    </div>
+  </div>
+</nav>
 
-<section class="hero">
-  <div class="hero-content">
-    <h1>Protect Your Driveway</h1>
-    <p>Sealcoating • Crack Filling • Line Striping</p>
-    <a href="quote.html">Get a Free Quote</a>
+<section class="relative min-h-screen flex items-center overflow-hidden bg-slate-900 pt-20">
+  <img src="https://media.base44.com/images/public/69cff2ab28c8a15ebd435cdb/3a90a362f_generated_7f4bd777.png" alt="Sealcoated driveway" class="absolute inset-0 w-full h-full object-cover opacity-40">
+  <div class="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/75 to-slate-900/30"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+  <div class="absolute left-0 top-0 h-full w-1.5 bg-gradient-to-b from-amber-400 via-amber-500 to-transparent"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-20 w-full">
+    <div class="max-w-3xl">
+      <span class="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/15 border border-amber-500/30 rounded-full text-amber-400 font-body text-sm font-semibold tracking-wide mb-8">
+        <span class="w-2 h-2 bg-amber-400 rounded-full animate-pulse"></span>
+        Professional Sealcoating & Pavement Services
+      </span>
+      <h1 class="font-heading font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white leading-[0.95] tracking-tight">
+        PROTECT YOUR<br>
+        <span class="text-amber-400">PAVEMENT.</span><br>
+        <span class="text-amber-400">PROTECT</span> YOUR<br>
+        INVESTMENT.
+      </h1>
+      <p class="font-body text-lg md:text-xl text-slate-300 mt-8 max-w-xl leading-relaxed">
+        Industry-leading sealcoating, crack filling, and line striping services that extend the life of your asphalt by up to 3x. Residential & commercial.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 mt-10">
+        <a href="quote.html" class="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 px-8 py-4 rounded-full font-body font-black text-base transition-all shadow-xl shadow-amber-500/30 group">
+          Get My Free Quote <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="absolute bottom-0 left-0 right-0 bg-white/5 backdrop-blur-sm border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-3 divide-x divide-white/10">
+        <div class="py-5 text-center"><div class="font-heading font-black text-2xl md:text-3xl text-amber-400">500+</div><div class="font-body text-xs text-slate-400 font-medium mt-0.5 tracking-wide">Projects Done</div></div>
+        <div class="py-5 text-center"><div class="font-heading font-black text-2xl md:text-3xl text-amber-400">10+</div><div class="font-body text-xs text-slate-400 font-medium mt-0.5 tracking-wide">Years Experience</div></div>
+        <div class="py-5 text-center"><div class="font-heading font-black text-2xl md:text-3xl text-amber-400">100%</div><div class="font-body text-xs text-slate-400 font-medium mt-0.5 tracking-wide">Satisfaction</div></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="services">
-  <div class="service-box" style="background-image:url('SealCoating.webp'); background-size:cover; background-position:center;">
-    <h3>Seal Coating</h3>
-  </div>
-  <div class="service-box" style="background-image:url('crackFilling.jpg'); background-size:cover; background-position:center;">
-    <h3>Crack Filling</h3>
-  </div>
-  <div class="service-box" style="background-image:url('lineStriping.jpg'); background-size:cover; background-position:center;">
-    <h3>Line Striping</h3>
+<section id="services" class="py-28 md:py-36 bg-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="max-w-2xl mb-20">
+      <span class="font-body text-amber-500 font-bold text-sm tracking-widest uppercase">What We Offer</span>
+      <h2 class="font-heading font-black text-4xl md:text-6xl text-slate-900 mt-3 leading-tight">Complete Pavement<br>Care Services</h2>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      
+      <div class="group rounded-2xl overflow-hidden border border-slate-100 hover:border-amber-200 hover:shadow-xl hover:shadow-amber-500/5 transition-all duration-300">
+        <div class="relative h-64 overflow-hidden">
+          <img src="https://media.base44.com/images/public/69cff2ab28c8a15ebd435cdb/d4fd7b2b3_generated_e3eedcdc.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+          <span class="absolute top-4 right-4 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full">Most Popular</span>
+        </div>
+        <div class="p-8">
+          <div class="w-12 h-12 mb-4 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="droplets" class="w-6 h-6 text-amber-500"></i>
+          </div>
+          <h3 class="font-heading font-black text-2xl text-slate-900">Driveway Sealcoating</h3>
+          <p class="font-body text-slate-500 mt-3 leading-relaxed">Restore your residential driveway to a rich, jet-black finish. Our premium sealant forms a protective barrier against UV rays, oil, and water damage.</p>
+        </div>
+      </div>
+
+      <div class="group rounded-2xl overflow-hidden border border-slate-100 hover:border-amber-200 hover:shadow-xl hover:shadow-amber-500/5 transition-all duration-300">
+        <div class="relative h-64 overflow-hidden">
+          <img src="https://media.base44.com/images/public/69cff2ab28c8a15ebd435cdb/0e6987137_generated_2ddfe1e8.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+          <span class="absolute top-4 right-4 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full">Commercial</span>
+        </div>
+        <div class="p-8">
+          <div class="w-12 h-12 mb-4 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="layout-grid" class="w-6 h-6 text-amber-500"></i>
+          </div>
+          <h3 class="font-heading font-black text-2xl text-slate-900">Parking Lot Sealcoating</h3>
+          <p class="font-body text-slate-500 mt-3 leading-relaxed">Commercial-grade applications for lots of all sizes. A freshly sealed lot signals professionalism and protects your asphalt investment for years.</p>
+        </div>
+      </div>
+
+      <div class="group rounded-2xl bg-slate-50 overflow-hidden border border-slate-100 hover:border-amber-200 hover:shadow-xl hover:shadow-amber-500/5 transition-all duration-300 p-8">
+        <div class="w-12 h-12 mb-4 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center flex-shrink-0">
+          <i data-lucide="wrench" class="w-6 h-6 text-amber-500"></i>
+        </div>
+        <h3 class="font-heading font-black text-2xl text-slate-900">Crack Filling</h3>
+        <p class="font-body text-slate-500 mt-3 leading-relaxed">Hot-applied rubberized crack filler expands and contracts with the pavement, preventing water infiltration and stopping cracks before they spread.</p>
+      </div>
+
+      <div class="group rounded-2xl bg-slate-50 overflow-hidden border border-slate-100 hover:border-amber-200 hover:shadow-xl hover:shadow-amber-500/5 transition-all duration-300 p-8">
+        <div class="w-12 h-12 mb-4 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center flex-shrink-0">
+          <i data-lucide="paint-bucket" class="w-6 h-6 text-amber-500"></i>
+        </div>
+        <h3 class="font-heading font-black text-2xl text-slate-900">Line Striping</h3>
+        <p class="font-body text-slate-500 mt-3 leading-relaxed">Traffic-grade paint for parking stalls, fire lanes, ADA handicap spaces, and directional markings. Clean lines that last through the seasons.</p>
+      </div>
+
+    </div>
   </div>
 </section>
 
-<footer>
-  <p>© 2026 Just Seal Bros</p>
+<section id="about" class="py-28 md:py-36 bg-slate-900 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <div class="relative order-2 lg:order-1 rounded-2xl overflow-hidden shadow-2xl">
+        <img src="https://media.base44.com/images/public/69cff2ab28c8a15ebd435cdb/211e5ebe4_generated_e0a85f34.png" alt="Before and after" class="w-full h-auto">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6 grid grid-cols-2 gap-3">
+          <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 text-center">
+            <div class="font-heading font-black text-3xl text-amber-400">500+</div>
+            <div class="font-body text-xs text-white/70 font-medium mt-0.5">Projects Complete</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 text-center">
+            <div class="font-heading font-black text-3xl text-amber-400">10+</div>
+            <div class="font-body text-xs text-white/70 font-medium mt-0.5">Years in Business</div>
+          </div>
+        </div>
+      </div>
+      <div class="order-1 lg:order-2">
+        <span class="font-body text-amber-400 font-bold text-sm tracking-widest uppercase">Our Story</span>
+        <h2 class="font-heading font-black text-4xl md:text-6xl text-white mt-3 leading-tight">Built on Hard Work<br>& <span class="text-amber-400">Honest Pricing</span></h2>
+        <div class="space-y-5 mt-8">
+          <p class="font-body text-slate-400 text-lg leading-relaxed">Just Seal Bros started with a truck, a squeegee, and an obsession with doing things right. We've grown into one of the most trusted crews in the area — but our standards haven't changed.</p>
+          <p class="font-body text-slate-400 text-lg leading-relaxed">We use only commercial-grade sealants that outperform competitors. Every project gets our full attention.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
+          <div class="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
+            <div class="w-2 h-2 rounded-full bg-amber-400 mt-2 flex-shrink-0"></div>
+            <div><div class="font-bold text-white text-sm">Commercial Grade</div><div class="text-slate-500 text-sm mt-0.5">Materials that last</div></div>
+          </div>
+          <div class="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
+            <div class="w-2 h-2 rounded-full bg-amber-400 mt-2 flex-shrink-0"></div>
+            <div><div class="font-bold text-white text-sm">Same-Week Service</div><div class="text-slate-500 text-sm mt-0.5">No waiting for weeks</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="relative py-24 bg-amber-500 overflow-hidden">
+  <div class="relative max-w-5xl mx-auto px-6 lg:px-8 text-center">
+    <h2 class="font-heading font-black text-4xl md:text-6xl text-white leading-tight">Ready to Seal the Deal?<br>Get Your Free Quote Today.</h2>
+    <p class="font-body text-lg text-white/75 mt-5 max-w-xl mx-auto">Don't wait until the damage gets worse. A small crack today becomes a costly repair tomorrow.</p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
+      <a href="quote.html" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-full font-body font-black transition-all group">
+        Get Free Estimate <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-slate-900 border-t border-slate-800 mt-auto">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-amber-500 rounded-lg flex items-center justify-center"><span class="text-white font-heading font-black text-lg">JS</span></div>
+          <div><span class="font-heading font-black text-xl text-white block leading-none">JUST SEAL BROS</span></div>
+        </div>
+        <p class="font-body text-slate-400 text-sm leading-relaxed max-w-xs">Professional sealcoating and pavement maintenance. Serving the metro area for over 10 years.</p>
+      </div>
+      <div>
+        <p class="font-body font-bold text-white text-sm mb-5">Quick Links</p>
+        <div class="space-y-3">
+          <a href="index.html#services" class="block font-body text-slate-400 hover:text-amber-400 text-sm transition-colors">Services</a>
+          <a href="quote.html" class="block font-body text-slate-400 hover:text-amber-400 text-sm transition-colors">Quote</a>
+          <a href="employment.html" class="block font-body text-slate-400 hover:text-amber-400 text-sm transition-colors">Jobs</a>
+        </div>
+      </div>
+      <div>
+        <p class="font-body font-bold text-white text-sm mb-5">Contact</p>
+        <div class="space-y-3 font-body text-slate-400 text-sm">
+          <p>(555) 123-7325</p>
+          <p>info@justsealbros.com</p>
+          <p>Mon–Sat: 7am – 6pm</p>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="font-body text-slate-500 text-sm">© 2026 Just Seal Bros. All rights reserved.</p>
+      <p class="font-body text-slate-600 text-xs">Licensed • Insured • Satisfaction Guaranteed</p>
+    </div>
+  </div>
 </footer>
 
+<script>
+  // Initialize Lucide Icons
+  lucide.createIcons();
+  
+  // Mobile menu toggle
+  document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+  });
+</script>
 </body>
 </html>

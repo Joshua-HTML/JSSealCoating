@@ -1,89 +1,146 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jobs | JS SealCoating</title>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Roboto', sans-serif; }
-body { background:#fff; display:flex; flex-direction:column; min-height:100vh; color:#111; line-height:1.6; }
-
-header {
-  display:flex; justify-content:space-between; align-items:center;
-  padding:20px 5%; background:#000; color:#fff; position:sticky; top:0; z-index:100; box-shadow:0 2px 5px rgba(0,0,0,0.2);
-}
-header .logo { font-family:'Oswald'; font-size:1.5rem; color:#fff; }
-header nav { display:flex; gap:25px; }
-header nav a { color:#fff; text-decoration:none; font-weight:700; text-transform:uppercase; }
-header nav a:hover { color:red; }
-
-.main-content { flex:1; display:flex; align-items:center; justify-content:center; padding:40px 20px; }
-.container {
-  max-width:700px; width:100%; background:#f9f9f9; padding:40px; border-radius:10px;
-  box-shadow:0 4px 15px rgba(0,0,0,0.1); text-align:center;
-}
-.container h1 { text-align:center; color:red; font-family:'Oswald'; margin-bottom:30px; }
-
-input, textarea { width:100%; padding:12px; margin-bottom:20px; border-radius:5px; border:1px solid #ccc; font-size:1rem; }
-button { width:100%; padding:15px; background:red; color:#fff; font-weight:bold; border:none; border-radius:5px; cursor:pointer; font-size:1rem; transition: 0.3s; }
-button:hover { background: #cc0000; }
-button:disabled { background: #555; cursor: not-allowed; }
-
-footer { background:#000; color:#fff; text-align:center; padding:20px; margin-top:auto; }
-
-#successMessage { display:none; padding: 20px; }
-#successMessage h2 { color: red; font-family: 'Oswald'; margin-bottom: 10px; }
-
-@media (max-width:768px) {
-  header { flex-direction:column; gap:15px; }
-  header nav { flex-wrap:wrap; justify-content:center; gap:10px; }
-  .container { padding:30px 20px; }
-}
-</style>
+<title>Careers | Just Seal Bros</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { heading: ['Oswald', 'sans-serif'], body: ['Roboto', 'sans-serif'] },
+        colors: { amber: { 400: '#fbbf24', 500: '#f59e0b' }, slate: { 50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1', 400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0f172a' } }
+      }
+    }
+  }
+</script>
+<script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-900 font-body flex flex-col min-h-screen">
 
-<header>
-  <div class="logo">Just Seal Bros</div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="quote.html">Quote</a>
-    <a href="employment.html">Jobs</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
-
-<div class="main-content">
-  <div class="container">
-    <div id="formContainer">
-      <h1>Apply Now</h1>
-      <form id="jobForm">
-        <input type="text" id="userName" placeholder="Full Name" required>
-        <input type="email" id="userEmail" placeholder="Email Address" required>
-        <textarea id="userExperience" placeholder="Experience / Resume Details" rows="5" required></textarea>
-        <button type="submit" id="submitBtn">Submit Application</button>
-      </form>
-    </div>
-
-    <div id="successMessage">
-      <div style="font-size: 4rem; margin-bottom: 20px;">💼</div>
-      <h2>Application Received!</h2>
-      <p>Thanks for applying. We've received your info and will contact you if you're a good fit for our crew.</p>
-      <br>
-      <a href="index.html" style="color:red; font-weight:bold; text-decoration:none;">← Back to Home</a>
+<nav id="navbar" class="sticky top-0 left-0 right-0 z-50 bg-white shadow-lg">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-amber-500 rounded-lg flex items-center justify-center">
+          <span class="text-white font-heading font-black text-lg">JS</span>
+        </div>
+        <div>
+          <span class="font-heading font-black text-xl text-slate-900 block leading-none uppercase">Just Seal Bros</span>
+        </div>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="font-body text-sm font-semibold text-slate-600 hover:text-amber-500 transition-colors">Home</a>
+        <a href="index.html#services" class="font-body text-sm font-semibold text-slate-600 hover:text-amber-500 transition-colors">Services</a>
+        <a href="employment.html" class="font-body text-sm font-semibold text-amber-500 transition-colors">Jobs</a>
+        <a href="contact.html" class="font-body text-sm font-semibold text-slate-600 hover:text-amber-500 transition-colors">Contact</a>
+        <a href="quote.html" class="bg-amber-500 hover:bg-amber-400 text-white px-6 py-2.5 rounded-full font-body font-bold text-sm transition-all shadow-md shadow-amber-200">Get Quote</a>
+      </div>
+      <button id="mobile-menu-btn" class="md:hidden text-slate-700">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
     </div>
   </div>
-</div>
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-xl px-6 py-4 space-y-1 flex flex-col">
+    <a href="index.html" class="block py-3 font-semibold text-slate-700">Home</a>
+    <a href="employment.html" class="block py-3 font-semibold text-amber-500">Jobs</a>
+    <a href="contact.html" class="block py-3 font-semibold text-slate-700">Contact</a>
+    <a href="quote.html" class="bg-amber-500 text-white px-6 py-3 rounded-full font-bold text-sm text-center mt-3">Get Quote</a>
+  </div>
+</nav>
 
-<footer>
-  <p>© 2026 Just Seal Bros | Palatine, IL</p>
+<section class="py-20 md:py-28 flex-grow">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20 items-start">
+      
+      <div class="lg:col-span-2">
+        <span class="font-body text-amber-500 font-bold text-sm tracking-widest uppercase">Join Our Crew</span>
+        <h2 class="font-heading font-black text-4xl md:text-5xl text-slate-900 mt-3 leading-tight uppercase">Work With<br>The Best.</h2>
+        <p class="font-body text-slate-500 text-lg mt-5 leading-relaxed">
+          We're looking for hard-working individuals to join our Palatine-based crew. If you're reliable, physically fit, and take pride in your work, we want to hear from you.
+        </p>
+        
+        <div class="mt-10 space-y-4">
+          <div class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
+            <div class="w-10 h-10 bg-amber-50 rounded-lg flex items-center justify-center text-amber-500">
+              <i data-lucide="banknote" class="w-5 h-5"></i>
+            </div>
+            <span class="font-bold text-slate-700">Competitive Weekly Pay</span>
+          </div>
+          <div class="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
+            <div class="w-10 h-10 bg-amber-50 rounded-lg flex items-center justify-center text-amber-500">
+              <i data-lucide="sun" class="w-5 h-5"></i>
+            </div>
+            <span class="font-bold text-slate-700">Outdoor Work Environment</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-3">
+        <div id="formContainer" class="bg-white border border-slate-100 rounded-2xl p-8 md:p-10 shadow-xl space-y-6">
+          <h3 class="font-heading font-black text-2xl text-slate-900 uppercase">Apply Now</h3>
+          <form id="jobForm" class="space-y-5">
+            <div>
+              <label class="font-body text-sm font-semibold text-slate-700 mb-2 block">Full Name *</label>
+              <input type="text" id="userName" required class="w-full h-12 px-4 rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all" placeholder="Enter your name">
+            </div>
+            
+            <div>
+              <label class="font-body text-sm font-semibold text-slate-700 mb-2 block">Email Address *</label>
+              <input type="email" id="userEmail" required class="w-full h-12 px-4 rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all" placeholder="yourname@email.com">
+            </div>
+
+            <div>
+              <label class="font-body text-sm font-semibold text-slate-700 mb-2 block">Experience & Details *</label>
+              <textarea id="userExperience" rows="5" required class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all resize-none" placeholder="Tell us about your work history or paste resume details..."></textarea>
+            </div>
+            
+            <button type="submit" id="submitBtn" class="w-full h-14 bg-amber-500 hover:bg-amber-400 text-white rounded-xl font-body font-black text-base transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 disabled:opacity-50">
+               Submit Application
+            </button>
+          </form>
+        </div>
+
+        <div id="successMessage" class="hidden bg-white border border-slate-100 rounded-2xl p-12 text-center shadow-xl">
+          <div class="w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6 text-amber-500">
+            <i data-lucide="briefcase" class="w-10 h-10"></i>
+          </div>
+          <h2 class="font-heading font-black text-3xl text-slate-900 mb-3 uppercase">Application Received!</h2>
+          <p class="font-body text-slate-500 mb-8 max-w-sm mx-auto">Thanks for reaching out. Our crew leads will review your info and contact you if you're a good fit for the team.</p>
+          <a href="index.html" class="inline-flex items-center justify-center bg-slate-900 text-white px-10 py-4 rounded-full font-bold transition-all hover:bg-slate-800">
+            Back to Home
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="bg-slate-900 border-t border-slate-800 py-12">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <div class="flex items-center justify-center gap-3 mb-6">
+        <div class="w-8 h-8 bg-amber-500 rounded flex items-center justify-center">
+          <span class="text-white font-heading font-black text-sm">JS</span>
+        </div>
+        <span class="font-heading font-black text-lg text-white tracking-tight uppercase">Just Seal Bros</span>
+    </div>
+    <p class="font-body text-slate-500 text-sm">© 2026 Just Seal Bros | Palatine, IL</p>
+    <p class="font-body text-slate-600 text-xs mt-2 uppercase tracking-widest">Quality Pavement Care</p>
+  </div>
 </footer>
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script type="text/javascript">
   (function(){ emailjs.init("QnCpF41NzEoGYcmRU"); })();
+  lucide.createIcons();
+  
+  // Mobile Menu Logic
+  document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+  });
 </script>
 
 <script type="module">
@@ -111,22 +168,22 @@ const successMessage = document.getElementById('successMessage');
 jobForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   
-  submitBtn.innerText = "Submitting...";
+  const originalText = submitBtn.innerText;
+  submitBtn.innerText = "Sending...";
   submitBtn.disabled = true;
 
   const applicantName = document.getElementById('userName').value;
   const applicantEmail = document.getElementById('userEmail').value;
   const applicantExperience = document.getElementById('userExperience').value;
 
-  // We are "Mapping" the employment fields to match your Contact Template's {{tags}}
   const templateParams = {
-    from_name: `JOB APPLICANT: ${applicantName}`, // This makes it clear in the email
+    from_name: `JOB APPLICANT: ${applicantName}`,
     from_email: applicantEmail,
-    message: `EXPERIENCE/RESUME:\n\n${applicantExperience}` // This puts their resume in the message box
+    message: `EXPERIENCE/RESUME:\n\n${applicantExperience}`
   };
 
   try {
-    // 1. Save to Firebase (New collection: job_applications)
+    // 1. Save to Firebase
     await addDoc(collection(db, "job_applications"), {
       from_name: applicantName,
       from_email: applicantEmail,
@@ -135,17 +192,17 @@ jobForm.addEventListener('submit', async (e) => {
       createdAt: serverTimestamp()
     });
 
-    // 2. Send via EmailJS (Using your Contact template ID)
+    // 2. Send via EmailJS
     await emailjs.send("service_9s21rio", "template_7erce9d", templateParams);
 
     // 3. UI Update
-    formContainer.style.display = 'none';
-    successMessage.style.display = 'block';
+    formContainer.classList.add('hidden');
+    successMessage.classList.remove('hidden');
 
   } catch (error) {
     console.error("Error:", error);
-    alert("Submission failed. Try again.");
-    submitBtn.innerText = "Submit Application";
+    alert("Submission failed. Please try again.");
+    submitBtn.innerText = originalText;
     submitBtn.disabled = false;
   }
 });

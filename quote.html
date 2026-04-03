@@ -1,201 +1,123 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Get a Free Quote | JS SealCoating</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
-<style>
-:root {
-  --primary-color: #fff;
-  --accent-color: #FF0000;
-  --secondary-color: #111;
-  --highlight-color: #FF9F1C;
-}
-
-* { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
-body { background: var(--primary-color); color: var(--secondary-color); line-height: 1.6; display:flex; flex-direction:column; min-height:100vh; }
-
-header {
-  background: #000;
-  color: #fff;
-  padding: 20px 5%;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-}
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.logo { font-family: 'Oswald', sans-serif; font-size: 1.6rem; letter-spacing: 1px; color: #fff; text-decoration: none; }
-nav a { color: #fff; text-decoration: none; font-weight: 700; margin-left: 25px; transition: color 0.3s; }
-nav a:hover { color: var(--accent-color); }
-.nav-btn { padding: 8px 16px; border: 1px solid var(--accent-color); border-radius: 5px; }
-.nav-btn:hover { background: var(--accent-color); color: #fff; }
-
-.section { padding: 80px 5%; }
-.section.dark { background: #1A1A1B; color: #fff; text-align: center; }
-.section.dark h1 { font-family: 'Oswald', sans-serif; font-size: 3rem; margin-bottom: 10px; }
-.section.dark p { color: #ADB5BD; font-size: 1.1rem; }
-
-.container { max-width: 900px; margin: 0 auto; }
-
-.contact-form-card {
-  background: #f9f9f9;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-  margin-top: -60px;
-}
-
-.contact-form .form-group { margin-bottom: 20px; }
-.contact-form label { display: block; font-weight: 600; margin-bottom: 8px; color: #333; }
-.contact-form input, .contact-form select, .contact-form textarea {
-  width: 100%;
-  padding: 14px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border 0.3s, box-shadow 0.3s;
-}
-.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus {
-  border-color: var(--accent-color);
-  box-shadow: 0 0 6px rgba(255,0,0,0.25);
-  outline: none;
-}
-
-.form-row { display: flex; gap: 20px; flex-wrap: wrap; }
-.form-row .form-group { flex: 1; min-width: 200px; }
-
-.btn-primary {
-  width: 100%;
-  background: var(--accent-color);
-  color: #fff;
-  font-weight: 700;
-  padding: 16px;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-.btn-primary:hover { background: var(--secondary-color); }
-
-#successMessage {
-  display: none;
-  text-align: center;
-  padding: 60px 20px;
-  background: #fff3e0;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  margin-top: 20px;
-}
-#successMessage h2 { color: var(--highlight-color); margin-bottom: 12px; }
-#successMessage p { font-size: 1.1rem; color: #333; }
-
-footer { background: #000; color: #fff; text-align: center; padding: 30px 5%; margin-top: 60px; font-size: 0.95rem; }
-
-/* MOBILE RESPONSIVENESS */
-@media (max-width:1024px) {
-  .section.dark h1 { font-size:2.5rem; }
-  .section.dark p { font-size:1rem; }
-}
-@media (max-width:768px) {
-  header { flex-direction: column; gap:15px; }
-  header nav { flex-wrap: wrap; justify-content: center; gap:10px; }
-  .contact-form-card { padding:30px 20px; }
-  .btn-primary { padding:14px; font-size:1rem; }
-  .form-row { flex-direction: column; }
-}
-@media (max-width:480px) {
-  .section.dark h1 { font-size:2rem; }
-  .contact-form-card { padding:20px 15px; }
-  .btn-primary { padding:12px; font-size:0.95rem; }
-}
-</style>
-
+<title>Get a Quote | Just Seal Bros</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { heading: ['Oswald', 'sans-serif'], body: ['Roboto', 'sans-serif'] },
+        colors: { amber: { 400: '#fbbf24', 500: '#f59e0b' }, slate: { 50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1', 400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0f172a' } }
+      }
+    }
+  }
+</script>
+<script src="https://unpkg.com/lucide@latest"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script type="text/javascript">
   (function(){ emailjs.init("QnCpF41NzEoGYcmRU"); })();
 </script>
 </head>
-<body class="subpage">
+<body class="bg-slate-50 text-slate-900 font-body flex flex-col min-h-screen">
 
-<header>
-  <div class="nav-container">
-    <a href="index.html" class="logo">Just <span>Seal Bros</span></a>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="index.html#services">Services</a>
-      <a href="quote.html" class="nav-btn">Get Quote</a>
-    </nav>
+<nav id="navbar" class="top-0 left-0 right-0 z-50 bg-white shadow-lg sticky">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-amber-500 rounded-lg flex items-center justify-center">
+          <span class="text-white font-heading font-black text-lg">JS</span>
+        </div>
+        <span class="font-heading font-black text-xl text-slate-900 block leading-none">JUST SEAL BROS</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="font-body text-sm font-semibold text-slate-600 hover:text-amber-500 transition-colors">Home</a>
+        <a href="contact.html" class="font-body text-sm font-semibold text-slate-600 hover:text-amber-500 transition-colors">Contact</a>
+      </div>
+    </div>
   </div>
-</header>
+</nav>
 
-<section class="section dark">
-  <div class="container">
-    <h1>Request Your Free Estimate</h1>
-    <p>Complete the form below to book your assessment in Palatine & surrounding areas.</p>
-  </div>
-</section>
+<section class="py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20">
+      
+      <div class="lg:col-span-2">
+        <span class="font-body text-amber-500 font-bold text-sm tracking-widest uppercase">Contact Us</span>
+        <h2 class="font-heading font-black text-4xl md:text-5xl text-slate-900 mt-3 leading-tight">Get Your Free<br>Estimate Today</h2>
+        <p class="font-body text-slate-500 text-base mt-5 leading-relaxed">Fill out the form and we'll get back to you with a detailed, no-obligation quote.</p>
+      </div>
 
-<section class="section">
-  <div class="container">
-    <div class="contact-form-card">
-      <form id="quoteForm" class="contact-form">
-        <div class="form-group">
-          <label>Full Name</label>
-          <input type="text" id="userName" placeholder="John Doe" required>
+      <div class="lg:col-span-3">
+        
+        <div id="formContainer" class="bg-white border border-slate-100 rounded-2xl p-8 md:p-10 shadow-sm space-y-5">
+          <form id="quoteForm" class="space-y-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label class="font-body text-sm font-semibold text-slate-700 mb-2 block">Full Name *</label>
+                <input type="text" id="userName" required class="w-full h-12 px-4 rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all" placeholder="John Doe">
+              </div>
+              <div>
+                <label class="font-body text-sm font-semibold text-slate-700 mb-2 block">Phone Number *</label>
+                <input type="tel" id="userPhone" required class="w-full h-12 px-4 rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all" placeholder="(555) 555-5555">
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label class="font-body text-sm font-semibold text-slate-700 mb-2 block">Email Address *</label>
+                <input type="email" id="userEmail" required class="w-full h-12 px-4 rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all" placeholder="john@example.com">
+              </div>
+              <div>
+                <label class="font-body text-sm font-semibold text-slate-700 mb-2 block">Service Type *</label>
+                <select id="serviceType" class="w-full h-12 px-4 rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all">
+                  <option value="Residential Driveway Sealcoating">Residential Driveway</option>
+                  <option value="Commercial Parking Lot Sealcoating">Commercial Parking Lot</option>
+                  <option value="Crack Filling / Asphalt Repair">Crack Filling / Repair Only</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="font-body text-sm font-semibold text-slate-700 mb-2 block">Property Address *</label>
+              <input type="text" id="userAddress" required class="w-full h-12 px-4 rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all" placeholder="123 Main St, Palatine, IL">
+            </div>
+
+            <div>
+              <label class="font-body text-sm font-semibold text-slate-700 mb-2 block">Project Details</label>
+              <textarea id="userDetails" rows="4" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all resize-none" placeholder="Tell us about the project (size, condition, etc.)"></textarea>
+            </div>
+            
+            <button type="submit" id="submitBtn" class="w-full h-14 bg-amber-500 hover:bg-amber-400 disabled:opacity-60 text-white rounded-xl font-body font-black text-base transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20">
+              <i data-lucide="send" class="w-5 h-5"></i> Submit Quote Request
+            </button>
+          </form>
         </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Phone Number</label>
-            <input type="tel" id="userPhone" placeholder="(555) 555-5555" required>
+
+        <div id="successMessage" class="hidden bg-white border border-slate-100 rounded-2xl p-10 text-center shadow-sm">
+          <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i data-lucide="check-circle" class="w-10 h-10 text-green-500"></i>
           </div>
-          <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" id="userEmail" placeholder="john@example.com" required>
-          </div>
+          <h2 class="font-heading font-black text-3xl text-slate-900 mb-3">Request Sent!</h2>
+          <p class="font-body text-slate-500 mb-8">Thanks, <span id="displayFirstName" class="font-bold"></span>. We've received your info and sent a confirmation email to your inbox.</p>
+          <a href="index.html" class="inline-flex items-center justify-center bg-slate-900 text-white px-8 py-3 rounded-full font-bold transition-colors hover:bg-slate-800">Back to Home</a>
         </div>
-        <div class="form-group">
-          <label>Property Address</label>
-          <input type="text" id="userAddress" placeholder="123 Main St, Palatine, IL" required>
-        </div>
-        <div class="form-group">
-          <label>Service Type</label>
-          <select id="serviceType">
-            <option value="Residential Driveway Sealcoating">Residential Driveway</option>
-            <option value="Commercial Parking Lot Sealcoating">Commercial Parking Lot</option>
-            <option value="Crack Filling / Asphalt Repair">Crack Filling / Repair Only</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Project Details</label>
-          <textarea id="userDetails" rows="5" placeholder="Tell us about the project (size, condition, etc.)"></textarea>
-        </div>
-        <button type="submit" class="btn-primary" id="submitBtn">Submit Quote Request</button>
-      </form>
 
-      <div id="successMessage">
-        <div style="font-size: 4rem; margin-bottom: 20px;">✅</div>
-        <h2>Request Sent!</h2>
-        <p>Thanks, <span id="displayFirstName"></span>. We've received your info and sent a confirmation email to your inbox.</p>
-        <br>
-        <a href="index.html" class="btn-primary" style="width:auto; padding:12px 30px;">Back to Home</a>
       </div>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="container">
-    <p>&copy; 2026 Just Seal Bros | Palatine, IL</p>
+<footer class="bg-slate-900 border-t border-slate-800 mt-auto py-8">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <p class="font-body text-slate-500 text-sm">© 2026 Just Seal Bros | Palatine, IL</p>
   </div>
 </footer>
+
+<script>lucide.createIcons();</script>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
@@ -216,10 +138,11 @@ const db = getFirestore(app);
 
 const quoteForm = document.getElementById('quoteForm');
 const submitBtn = document.getElementById('submitBtn');
+const formContainer = document.getElementById('formContainer');
 
 quoteForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-  submitBtn.innerText = "Processing Lead...";
+  submitBtn.innerHTML = "Processing Lead...";
   submitBtn.disabled = true;
 
   const templateParams = {
@@ -240,13 +163,14 @@ quoteForm.addEventListener('submit', async (e) => {
 
     await emailjs.send("service_9s21rio", "template_3jdyf6w", templateParams);
 
-    quoteForm.style.display = 'none';
+    formContainer.classList.add('hidden');
     document.getElementById('displayFirstName').innerText = templateParams.customerName.split(' ')[0];
-    document.getElementById('successMessage').style.display = 'block';
+    document.getElementById('successMessage').classList.remove('hidden');
   } catch (error) {
     console.error("Error: ", error);
     alert("Something went wrong. Please check your internet connection.");
-    submitBtn.innerText = "Submit Quote Request";
+    submitBtn.innerHTML = `<i data-lucide="send" class="w-5 h-5"></i> Submit Quote Request`;
+    lucide.createIcons();
     submitBtn.disabled = false;
   }
 });

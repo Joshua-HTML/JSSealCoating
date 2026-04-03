@@ -7,7 +7,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
-  tailwind.config = { theme: { extend: { fontFamily: { heading: ['Oswald', 'sans-serif'], body: ['Roboto', 'sans-serif'] }, colors: { amber: { 400: '#fbbf24', 500: '#f59e0b' }, slate: { 50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1', 400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0f172a' } } } } }
+  tailwind.config = { 
+    theme: { 
+        extend: { 
+            fontFamily: { heading: ['Oswald', 'sans-serif'], body: ['Roboto', 'sans-serif'] }, 
+            colors: { amber: { 400: '#fbbf24', 500: '#f59e0b' }, slate: { 50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1', 400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0f172a' } } 
+        } 
+    } 
+}
 </script>
 <script src="https://unpkg.com/lucide@latest"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -21,38 +28,43 @@
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
       <a href="index.html" class="flex items-center gap-3">
-        <div class="w-10 h-10 bg-amber-500 rounded-lg flex items-center justify-center"><span class="text-white font-heading font-black text-lg">JS</span></div>
-        <span class="font-heading font-black text-xl text-slate-900 block leading-none">JUST SEAL BROS</span>
+        <div class="w-10 h-10 bg-amber-500 rounded-lg flex items-center justify-center">
+            <span class="text-white font-heading font-black text-lg">JS</span>
+        </div>
+        <span class="font-heading font-black text-xl text-slate-900 block leading-none uppercase">Just Seal Bros</span>
       </a>
       <div class="hidden md:flex items-center gap-8">
-        <a href="index.html" class="font-body text-sm font-semibold text-slate-600 hover:text-amber-500">Home</a>
-        <a href="quote.html" class="font-body text-sm font-semibold text-slate-600 hover:text-amber-500">Quote</a>
+        <a href="index.html" class="font-body text-sm font-semibold text-slate-600 hover:text-amber-500 transition-colors">Home</a>
+        <a href="quote.html" class="font-body text-sm font-semibold text-slate-600 hover:text-amber-500 transition-colors">Quote</a>
+        <a href="employment.html" class="font-body text-sm font-semibold text-slate-600 hover:text-amber-500 transition-colors">Jobs</a>
+        <a href="contact.html" class="font-body text-sm font-semibold text-amber-500">Contact</a>
       </div>
     </div>
   </div>
 </nav>
 
-<section class="py-20 md:py-28">
+<section class="py-20 md:py-28 flex-grow">
   <div class="max-w-3xl mx-auto px-6 lg:px-8">
     
     <div id="formContainer" class="bg-white border border-slate-100 rounded-2xl p-8 md:p-10 shadow-sm space-y-5">
       <div class="text-center mb-8">
-        <span class="font-body text-amber-500 font-bold text-sm tracking-widest uppercase">Reach Out</span>
+        <span class="font-body text-amber-500 font-bold text-sm tracking-widest uppercase">Get In Touch</span>
         <h1 class="font-heading font-black text-4xl text-slate-900 mt-2">Contact Us</h1>
+        <p class="text-slate-500 mt-2">Have a question? We're here to help.</p>
       </div>
 
       <form id="contactForm" class="space-y-5">
         <div>
           <label class="font-body text-sm font-semibold text-slate-700 mb-2 block">Name</label>
-          <input type="text" id="userName" required class="w-full h-12 px-4 rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20">
+          <input type="text" id="userName" placeholder="Your full name" required class="w-full h-12 px-4 rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20">
         </div>
         <div>
-          <label class="font-body text-sm font-semibold text-slate-700 mb-2 block">Email</label>
-          <input type="email" id="userEmail" required class="w-full h-12 px-4 rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20">
+          <label class="font-body text-sm font-semibold text-slate-700 mb-2 block">Email Address</label>
+          <input type="email" id="userEmail" placeholder="email@example.com" required class="w-full h-12 px-4 rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20">
         </div>
         <div>
           <label class="font-body text-sm font-semibold text-slate-700 mb-2 block">Message</label>
-          <textarea id="userMessage" required rows="5" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 resize-none"></textarea>
+          <textarea id="userMessage" placeholder="How can we help you?" required rows="5" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 resize-none"></textarea>
         </div>
         <button type="submit" id="submitBtn" class="w-full h-14 bg-amber-500 hover:bg-amber-400 disabled:opacity-60 text-white rounded-xl font-body font-black text-base transition-all flex items-center justify-center gap-2">
           Send Message
@@ -66,14 +78,16 @@
       </div>
       <h2 class="font-heading font-black text-3xl text-slate-900 mb-3">Message Sent!</h2>
       <p class="font-body text-slate-500 mb-8">Thanks for reaching out. We've received your message and will be in touch shortly.</p>
-      <a href="index.html" class="inline-flex items-center bg-slate-900 text-white px-8 py-3 rounded-full font-bold hover:bg-slate-800">Back to Home</a>
+      <a href="index.html" class="inline-flex items-center bg-slate-900 text-white px-8 py-3 rounded-full font-bold hover:bg-slate-800 transition-colors">Back to Home</a>
     </div>
 
   </div>
 </section>
 
-<footer class="bg-slate-900 border-t border-slate-800 mt-auto py-8">
-  <div class="max-w-7xl mx-auto px-6 text-center"><p class="font-body text-slate-500 text-sm">© 2026 Just Seal Bros | Palatine, IL</p></div>
+<footer class="bg-slate-900 border-t border-slate-800 py-8">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <p class="font-body text-slate-500 text-sm">© 2026 Just Seal Bros | Palatine, IL</p>
+  </div>
 </footer>
 
 <script>lucide.createIcons();</script>
@@ -83,7 +97,13 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebas
 import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC4vPhWvvS1iji56ErUovorzgPOwAgES70", authDomain: "js-sealcoating.firebaseapp.com", projectId: "js-sealcoating", storageBucket: "js-sealcoating.firebasestorage.app", messagingSenderId: "44299224297", appId: "1:44299224297:web:49ee805de42f985bf15c78", measurementId: "G-3V1EDHKLQ0"
+  apiKey: "AIzaSyC4vPhWvvS1iji56ErUovorzgPOwAgES70", 
+  authDomain: "js-sealcoating.firebaseapp.com", 
+  projectId: "js-sealcoating", 
+  storageBucket: "js-sealcoating.firebasestorage.app", 
+  messagingSenderId: "44299224297", 
+  appId: "1:44299224297:web:49ee805de42f985bf15c78", 
+  measurementId: "G-3V1EDHKLQ0"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -92,9 +112,11 @@ const db = getFirestore(app);
 const contactForm = document.getElementById('contactForm');
 const submitBtn = document.getElementById('submitBtn');
 const formContainer = document.getElementById('formContainer');
+const successSection = document.getElementById('successMessage');
 
 contactForm.addEventListener('submit', async (e) => {
   e.preventDefault();
+  const originalBtnText = submitBtn.innerText;
   submitBtn.innerText = "Sending...";
   submitBtn.disabled = true;
 
@@ -105,14 +127,23 @@ contactForm.addEventListener('submit', async (e) => {
   };
 
   try {
-    await addDoc(collection(db, "contact_messages"), { ...templateParams, status: "New Inquiry", createdAt: serverTimestamp() });
+    // 1. Save to Firebase
+    await addDoc(collection(db, "contact_messages"), { 
+        ...templateParams, 
+        status: "New Inquiry", 
+        createdAt: serverTimestamp() 
+    });
+
+    // 2. Send via EmailJS
     await emailjs.send("service_9s21rio", "template_7erce9d", templateParams);
 
+    // 3. UI Update
     formContainer.classList.add('hidden');
-    document.getElementById('successMessage').classList.remove('hidden');
+    successSection.classList.remove('hidden');
   } catch (error) {
+    console.error("Error:", error);
     alert("Something went wrong. Please check your connection and try again.");
-    submitBtn.innerText = "Send Message";
+    submitBtn.innerText = originalBtnText;
     submitBtn.disabled = false;
   }
 });

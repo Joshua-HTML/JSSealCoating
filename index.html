@@ -1,8 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  if (window.location.pathname.endsWith("index.html")) {
+    window.history.replaceState({}, document.title, "/home");
+  }
+</script>
+
+
 <title>Just Seal Bros | Professional Pavement Care</title>
 
 <link rel="icon" type="image/png" href="/JustSealBrosLogo.png">
@@ -27,7 +36,7 @@
 <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-lg">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
-      <a href="index.html" class="flex items-center gap-3">
+      <a href="/" class="flex items-center gap-3">
         <img src="/JustSealBrosLogo.png" alt="Just Seal Bros Logo" class="w-12 h-12 object-contain">
         <div>
           <span class="font-heading font-black text-xl text-slate-900 block leading-none">JUST SEAL BROS</span>
@@ -35,8 +44,8 @@
         </div>
       </a>
       <div class="hidden md:flex items-center gap-8">
-        <a href="index.html#services" class="font-body text-sm font-semibold text-slate-600 hover:text-amber-500 transition-colors tracking-wide">Services</a>
-        <a href="index.html#about" class="font-body text-sm font-semibold text-slate-600 hover:text-amber-500 transition-colors tracking-wide">About</a>
+        <a href="/#services" class="font-body text-sm font-semibold text-slate-600 hover:text-amber-500 transition-colors tracking-wide">Services</a>
+        <a href="/#about" class="font-body text-sm font-semibold text-slate-600 hover:text-amber-500 transition-colors tracking-wide">About</a>
         <a href="employment.html" class="font-body text-sm font-semibold text-slate-600 hover:text-amber-500 transition-colors tracking-wide">Jobs</a>
         <a href="contact.html" class="font-body text-sm font-semibold text-slate-600 hover:text-amber-500 transition-colors tracking-wide">Contact</a>
         <a href="quote.html" class="flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-white px-6 py-2.5 rounded-full font-body font-bold text-sm transition-all shadow-md shadow-amber-200">
@@ -50,8 +59,8 @@
   </div>
   <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-xl">
     <div class="px-6 py-4 space-y-1 flex flex-col">
-      <a href="index.html#services" class="block py-3 font-semibold text-slate-700 hover:text-amber-500">Services</a>
-      <a href="index.html#about" class="block py-3 font-semibold text-slate-700 hover:text-amber-500">About</a>
+      <a href="/#services" class="block py-3 font-semibold text-slate-700 hover:text-amber-500">Services</a>
+      <a href="/#about" class="block py-3 font-semibold text-slate-700 hover:text-amber-500">About</a>
       <a href="employment.html" class="block py-3 font-semibold text-slate-700 hover:text-amber-500">Jobs</a>
       <a href="contact.html" class="block py-3 font-semibold text-slate-700 hover:text-amber-500">Contact</a>
       <a href="quote.html" class="flex items-center justify-center gap-2 bg-amber-500 text-white px-6 py-3 rounded-full font-bold text-sm mt-3">Get Quote</a>
@@ -178,7 +187,7 @@
         <span class="font-body text-amber-400 font-bold text-sm tracking-widest uppercase">Our Story</span>
         <h2 class="font-heading font-black text-4xl md:text-6xl text-white mt-3 leading-tight">Built on Hard Work<br>& <span class="text-amber-400">Honest Pricing</span></h2>
         <div class="space-y-5 mt-8">
-          <p class="font-body text-slate-400 text-lg leading-relaxed">Just Seal Bros started with a truck, a squeegee, and a vision. As two high school students, we didn't just want a summer job—we wanted to pursue a lifelong passion for business. We set out to prove that young entrepreneurs could bring more energy, better tech, and higher standards to the asphalt industry. Today, we’ve grown into a premier crew known for our obsession with doing things right. Our tools have upgraded, but our high-school hustle and commitment to our neighbors haven't changed.</p>
+          <p class="font-body text-slate-400 text-lg leading-relaxed">Just Seal Bros started with a truck, a squeegee, and a vision. As two high school students, we didn't just want a summer job—we wanted to pursue a lifelong passion for business. We set out to prove that young entrepreneurs could bring more energy, better tech, and higher standards to the asphalt industry. Today, we’ve grown into a premier crew known for our obsession with doing things right. Our tools have upgraded, but our high-school hustle and commitment to our neighbors haven't changed..</p>
           <p class="font-body text-slate-400 text-lg leading-relaxed">We use only commercial-grade sealants that outperform competitors. Every project gets our full attention.</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
@@ -221,7 +230,7 @@
       <div>
         <p class="font-body font-bold text-white text-sm mb-5">Quick Links</p>
         <div class="space-y-3">
-          <a href="index.html#services" class="block font-body text-slate-400 hover:text-amber-400 text-sm transition-colors">Services</a>
+          <a href="/#services" class="block font-body text-slate-400 hover:text-amber-400 text-sm transition-colors">Services</a>
           <a href="quote.html" class="block font-body text-slate-400 hover:text-amber-400 text-sm transition-colors">Quote</a>
           <a href="employment.html" class="block font-body text-slate-400 hover:text-amber-400 text-sm transition-colors">Jobs</a>
         </div>
@@ -229,8 +238,8 @@
       <div>
         <p class="font-body font-bold text-white text-sm mb-5">Contact</p>
         <div class="space-y-3 font-body text-slate-400 text-sm">
-          <p>(847) 312-2276</p>
-          <p>JsSealCoating@gmail.com</p>
+          <p>(555) 123-7325</p>
+          <p>info@justsealbros.com</p>
           <p>Mon–Sat: 7am – 6pm</p>
         </div>
       </div>
